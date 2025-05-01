@@ -16,6 +16,6 @@ Api para el proyecto de turnos para barberia
 
 ## Autores
 
-- [@aguspach93](https://github.com/aguspach93) | PACHECHO, Agustín
-- [@cirogiam58](https://github.com/cirogiam58) | GIAMPANI, cirogiam58
+- [@aguspach93](https://github.com/aguspach93) | PACHECO, Agustín
+- [@cirogiam58](https://github.com/cirogiam58) | GIAMPANI, Ciro
 - [@maxive26](https://github.com/maxive26) | VERA, Maximiliano
