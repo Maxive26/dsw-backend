@@ -6,4 +6,4 @@ class Sucursal {
   }
 }
 
-module.exports = Sucursal;
+export default Sucursal;

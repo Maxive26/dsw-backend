@@ -1,19 +1,20 @@
-import express from "express";
-import sucursalRoutes from "./routes/sucursalRoutes.js";
-import profesionalRoutes from "./routes/profesionalRoutes.js";
+import app from "./app.js";
+import { db } from "./config/db.js";
 
-const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json()); // Para poder recibir JSON en los requests
+async function startServer() {
+  try {
+    await db.execute("SELECT 1");
+    console.log("Conectado a la base de datos Turso");
 
-app.use("/sucursales", sucursalRoutes);
-app.use("/profesionales", profesionalRoutes);
+    app.listen(PORT, () => {
+      console.log(`Servidor corriendo en http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.error("Error al conectar con la base de datos:", error);
+    process.exit(1);
+  }
+}
 
-app.get("/", (req, res) => {
-  res.send("Anda");
-});
-
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
+startServer();

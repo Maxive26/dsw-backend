@@ -7,4 +7,4 @@ class Profesional {
   }
 }
 
-module.exports = Profesional;
+export default Profesional;

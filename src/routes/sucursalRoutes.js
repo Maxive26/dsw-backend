@@ -1,10 +1,16 @@
-const express = require('express');
+import express from "express";
+import {
+  getAll,
+  create,
+  update,
+  remove,
+} from "../controllers/sucursalController.js";
+
 const router = express.Router();
-const sucursalController = require('../controllers/sucursalController');
 
-router.get('/', sucursalController.getAll);
-router.post('/', sucursalController.create);
-router.put("/:id", sucursalController.update);
-router.delete("/:id", sucursalController.remove);
+router.get("/sucursales", getAll);
+router.post("/sucursales", create);
+router.put("/sucursales/:id", update);
+router.delete("/sucursales/:id", remove);
 
-module.exports = router;
+export default router;
