@@ -1,12 +1,12 @@
-const Profesional = require('../models/profesional');
+import Profesional from "../models/profesional.js";
 
 let profesionales = [];
 
-exports.getAll = (req, res) => {
+export const getAll = (req, res) => {
   res.json(profesionales);
 };
 
-exports.create = (req, res) => {
+export const create = (req, res) => {
   const { legajo, nombre, mail, idSucursal } = req.body;
   const nuevoProfesional = new Profesional(legajo, nombre, mail, idSucursal);
   profesionales.push(nuevoProfesional);
@@ -16,7 +16,7 @@ exports.create = (req, res) => {
 export const update = (req, res) => {
   const { legajo } = req.params;
   const { nombre, mail, idSucursal } = req.body;
-  const profesional = profesionales.find(p => p.legajo === legajo);
+  const profesional = profesionales.find((p) => p.legajo === legajo);
   if (!profesional) {
     return res.status(404).json({ message: "Profesional no encontrado" });
   }
@@ -28,7 +28,7 @@ export const update = (req, res) => {
 
 export const remove = (req, res) => {
   const { legajo } = req.params;
-  const index = profesionales.findIndex(p => p.legajo === legajo);
+  const index = profesionales.findIndex((p) => p.legajo === legajo);
   if (index === -1) {
     return res.status(404).json({ message: "Profesional no encontrado" });
   }

@@ -1,10 +1,16 @@
-const express = require('express');
+import express from "express";
+import {
+  getAll,
+  create,
+  update,
+  remove,
+} from "../controllers/profesionalController.js";
+
 const router = express.Router();
-const profesionalController = require('../controllers/profesionalController');
 
-router.get('/', profesionalController.getAll);
-router.post('/', profesionalController.create);
-router.put("/:legajo", profesionalController.update);
-router.delete("/:legajo", profesionalController.remove);
+router.get("/profesionales", getAll);
+router.post("/profesionales", create);
+router.put("/profesionales/:legajo", update);
+router.delete("/profesionales/:legajo", remove);
 
-module.exports = router;
+export default router;

@@ -1,12 +1,12 @@
-const Sucursal = require('../models/sucursal');
+import Sucursal from "../models/sucursal.js";
 
 let sucursales = [];
 
-exports.getAll = (req, res) => {
+export const getAll = (req, res) => {
   res.json(sucursales);
 };
 
-exports.create = (req, res) => {
+export const create = (req, res) => {
   const { idSucursal, nombre, direccion } = req.body;
   const nuevaSucursal = new Sucursal(idSucursal, nombre, direccion);
   sucursales.push(nuevaSucursal);
@@ -16,7 +16,7 @@ exports.create = (req, res) => {
 export const update = (req, res) => {
   const { id } = req.params;
   const { nombre, direccion } = req.body;
-  const sucursal = sucursales.find(s => s.idSucursal === id);
+  const sucursal = sucursales.find((s) => s.idSucursal === id);
   if (!sucursal) {
     return res.status(404).json({ message: "Sucursal no encontrada" });
   }
@@ -27,7 +27,7 @@ export const update = (req, res) => {
 
 export const remove = (req, res) => {
   const { id } = req.params;
-  const index = sucursales.findIndex(s => s.idSucursal === id);
+  const index = sucursales.findIndex((s) => s.idSucursal === id);
   if (index === -1) {
     return res.status(404).json({ message: "Sucursal no encontrada" });
   }
