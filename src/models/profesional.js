@@ -1,10 +1,13 @@
-class Profesional {
-  constructor(legajo, nombre, mail, idSucursal) {
-    this.legajo = legajo;
-    this.nombre = nombre;
-    this.mail = mail;
-    this.idSucursal = idSucursal; // Relación con sucursal
-  }
-}
+import { db } from "../config/db.js";
 
-export default Profesional;
+export default async function initProfesionalTable() {
+  await db.execute(`
+    CREATE TABLE IF NOT EXISTS profesional (
+      legajo INTEGER PRIMARY KEY,
+      nombre TEXT NOT NULL,
+      mail TEXT UNIQUE NOT NULL,
+      idSucursal INTEGER NOT NULL,
+      FOREIGN KEY (idSucursal) REFERENCES sucursal(idSucursal)
+    );
+  `);
+}
