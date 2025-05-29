@@ -2,6 +2,7 @@ import app from "./app.js";
 import { db } from "./config/db.js";
 import initSucursalTable from "./models/sucursal.js";
 import initProfesionalTable from "./models/profesional.js";
+import initClienteTable from "./models/cliente.js";
 const PORT = process.env.PORT || 3000;
 
 async function startServer() {
