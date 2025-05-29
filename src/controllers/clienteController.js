@@ -1,4 +1,4 @@
-import db from "../config/db.js"; // Ajusta la ruta según tu proyecto
+import Cliente from "../models/cliente.js";
 
 export const getAll = async (req, res) => {
   try {
