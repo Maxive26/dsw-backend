@@ -41,8 +41,6 @@ export const update = async (req, res) => {
   const { legajo } = req.params;
   const { nombre, mail, idSucursal } = req.body;
 
-  console.log("Body recibido:", req.body);
-
   try {
     const profesional = await db.execute(
       "SELECT * FROM profesional WHERE legajo = ?",

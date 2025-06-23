@@ -11,6 +11,7 @@ async function startServer() {
     console.log("Conectado a la base de datos Turso");
     await initSucursalTable();
     await initProfesionalTable();
+    await initClienteTable();
     app.listen(PORT, () => {
       console.log(`Servidor corriendo en http://localhost:${PORT}`);
     });
